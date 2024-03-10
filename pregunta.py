@@ -18,9 +18,9 @@ import pandas as pd
 
 palabras = []
 dicc = {'cluster':[],
-        'cantidad de palabras clave':[],
-        'porcentaje de palabras clave':[],
-        'principales palabras clave':[]}
+        'cantidad_de_palabras_clave':[],
+        'porcentaje_de_palabras_clave':[],
+        'principales_palabras_clave':[]}
 
 def ingest_data():
     cluster = open("clusters_report.txt", mode="r")
@@ -58,10 +58,10 @@ def ingest_data():
 
         if int(resultado[0]) not in dicc['cluster']:
             dicc['cluster'].append(int(resultado[0]))
-            dicc['cantidad de palabras clave'].append(int(resultado[1]))
+            dicc['cantidad_de_palabras_clave'].append(int(resultado[1]))
             numero = resultado[2].replace(',', '.')
-            dicc['porcentaje de palabras clave'].append(float(numero))
-            dicc['principales palabras clave'].append(resultado[3])
+            dicc['porcentaje_de_palabras_clave'].append(float(numero))
+            dicc['principales_palabras_clave'].append(resultado[3])
 
     return pd.DataFrame(dicc)
 
